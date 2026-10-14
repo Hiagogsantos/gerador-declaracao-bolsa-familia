@@ -1,0 +1,26 @@
+# ===== Dados de alunos e segredos: NUNCA enviar para o GitHub =====
+*.db
+*.sqlite
+*.sqlite3
+*.xlsx
+*.xls
+*.csv
+credenciais*.json
+credentials*.json
+token*.json
+planilhas.json
+config.json
+*.log
+
+# ===== Arquivos gerados =====
+__pycache__/
+*.pyc
+build/
+dist/
+venv/
+.venv/
+*.exe
+~$*
+
+*.docx
+*.pdf

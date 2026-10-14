@@ -1,0 +1,178 @@
+<html><head>
+    <meta charset="UTF-8">
+    <title>Template de Documento</title>
+    <style>
+        /*
+         * Definições Gerais de Estilo para a Página
+         */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0cm; /* Margens padrão de uma folha A4 */
+        }
+        
+        /* Estilos específicos que você usará */
+        .negrito {
+            font-weight: bold;
+        }
+        
+	.frase-centralizada {
+	    text-align: center;
+	    margin-top: 15px;
+	    margin-bottom: 15px;
+	}
+
+	.alinhamento_justificado {
+	    text-align: justify;
+	}
+
+	.alinhamento_centro {
+	    text-align: center;
+	}
+	
+	.alinhamento_esquerda {
+	    text-align: left;
+	}
+
+	.alinhamento_direita {
+	    text-align: right;
+	}
+
+        .tamanho-pequeno {
+            font-size: 11pt;
+        }
+	
+	.tamanho-medio {
+            font-size: 12pt;
+        }        
+
+        .tamanho-grande {
+            font-size: 16pt;
+        }
+        
+        .espacamento-curto {
+            line-height: 1.0;
+        }
+        
+	.espacamento-medio {
+            line-height: 1.5; /* Espaçamento duplo */
+        }
+
+        .espacamento-longo {
+            line-height: 2.0; /* Espaçamento duplo */
+        }
+	
+	.espacamento-customizado {
+            line-height: 5.0;
+        }
+
+	.margem_geral {
+	    margin: 1.5cm;
+	}
+
+	.margem_lados {
+	    margin-left: 2cm; 
+    	    margin-right: 2cm;
+	}
+	
+	.margem_data {
+	    margin-top: 2.5cm; 
+	    margin-left: 2cm; 
+    	    margin-right: 1.8cm;
+	}
+	
+	.margem_direita_baixo {
+	    margin-right: 2.3cm; 
+	    margin-bottom: 1.5cm;
+	}
+
+	.margem_esquerda {
+	    margin-left: 2.3cm; 
+	}
+	
+	.margem_esquerda_baixo {
+	    margin-left: 2.3cm; 
+	    margin-bottom: 2.3cm;
+	}
+	
+	.margem_esquerda_baixocima {
+	    margin-top: -1.0cm;
+	    margin-left: 2.3cm; 
+	    margin-bottom: 1.3cm;
+	}
+
+	.margem_baixo_curto {
+	    margin-bottom: 1.5cm; 
+	}
+
+	.margem_baixo {
+	    margin-bottom: 2.3cm; 
+	}
+
+        .assinatura {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .imagem-cabeçalho {
+            width: 100%;
+            height: auto;
+            display: block; /* Garante que a imagem esteja em uma linha própria */
+            margin-bottom: 20px;
+        }
+	
+	.imagem-rodape {
+	    position: fixed; /* Fixa a posição da imagem em relação à área de visualização/página */
+	    bottom: 0; /* Coloca a imagem na parte inferior */
+	    left: 0; /* Coloca a imagem na margem esquerda */
+	    width: 100%;
+	    /* Se o body tem 2cm de margem, você pode ajustar bottom: 2cm; ou 
+	       usar width e left negativos para compensar */
+	}
+    </style>
+<style type="text/css" id="operaUserStyle"></style></head>
+<body>
+<img src="imagens/top.png"    class="imagem-cabeçalho" alt="Cabeçalho">
+
+<p class="frase-centralizada margem_geral">
+    <span class="negrito tamanho-grande">DECLARAÇÃO BOLSA FAMÍLIA</span>
+</p>
+
+<p class="tamanho-medio espacamento-medio alinhamento_justificado margem_lados">
+    Declaro para os devidos fins que <span class="negrito">(NOME)</span> (PALAVRA) em <span class="negrito">(DATA)</span> natural de <span class="negrito">(CIDADE)</span>, (PALAVRA2) de <span class="negrito">(PAIS)</span> está regularmente (PALAVRA3) no <span class="negrito">(ANOTURMA)</span> do Ensino Fundamental nesta unidade de ensino.
+</p>
+
+<p class="tamanho-medio espacamento-curto margem_esquerda">
+      INEP: <span class="negrito">00000000</span>
+</p>
+
+<p class="tamanho-medio espacamento-curto margem_esquerda_baixo">
+      NIS: <span class="negrito">(NIS)</span>
+</p>
+
+<p class="tamanho-medio espacamento-medio alinhamento_esquerda margem_esquerda_baixocima">
+      O estudante apresenta os seguintes percentuais de frequência nos meses de: <br> • <span class="negrito">(FREQ1)%</span> de <span class="negrito">(MES1)</span> <br> • <span class="negrito">(FREQ2)%</span> de <span class="negrito">(MES2)</span>
+</p>
+
+<p class="tamanho-medio alinhamento_direita margem_direita_baixo">
+    Cidade Exemplo, (DIA) de (MES) de (ANO)
+</p>
+
+<p class="tamanho-medio alinhamento_centro">
+    <span class="negrito">__________________________________________________________</span>
+</p>
+
+<p class="tamanho-pequeno alinhamento_centro margem_baixo_curto">
+    <span class="negrito">Responsável pela informação</span>
+</p>
+
+<p class="tamanho-medio alinhamento_centro">
+    <span class="negrito">__________________________________________________________</span>
+</p>
+
+<p class="tamanho-pequeno alinhamento_centro">
+    <span class="negrito">Gestor</span>
+</p>
+
+<img src="imagens/down.png"   class="imagem-rodape"    alt="Rodapé">  
+	
+</body></html>

@@ -1,0 +1,56 @@
+# Gera o executável para Windows sozinho, nos servidores do GitHub.
+# Como usar: publique uma Release (ex.: v1.0.0) na página do repositório
+# ou rode manualmente na aba Actions > "Gerar executável" > Run workflow.
+name: Gerar executável
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Instalar dependências
+        run: pip install -r requirements.txt pyinstaller 
+
+      - name: Criar banco de exemplo (alunos fictícios)
+        run: python criar_banco_exemplo.py
+
+      - name: Empacotar com PyInstaller
+        run: pyinstaller --noconfirm --onedir --windowed --name GeradorDeclaracaoBolsaFamilia --icon icone_bolsafamilia.ico gerador_declaracao_bolsafamilia.py
+
+      - name: Copiar arquivos de apoio para junto do .exe
+        shell: pwsh
+        run: |
+          Copy-Item -Recurse -Force "modelo_bolsafamilia.html" "dist/GeradorDeclaracaoBolsaFamilia/"
+          Copy-Item -Recurse -Force "modelo_bolsafamilia_frequencia.html" "dist/GeradorDeclaracaoBolsaFamilia/"
+          Copy-Item -Recurse -Force "background.png" "dist/GeradorDeclaracaoBolsaFamilia/"
+          Copy-Item -Recurse -Force "icone_bolsafamilia.ico" "dist/GeradorDeclaracaoBolsaFamilia/"
+          Copy-Item -Recurse -Force "imagens" "dist/GeradorDeclaracaoBolsaFamilia/"
+          Copy-Item -Force "alunos_2025.db" "dist/GeradorDeclaracaoBolsaFamilia/"
+
+      - name: Compactar
+        shell: pwsh
+        run: Compress-Archive -Path "dist/GeradorDeclaracaoBolsaFamilia" -DestinationPath "GeradorDeclaracaoBolsaFamilia-windows.zip"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: GeradorDeclaracaoBolsaFamilia-windows
+          path: GeradorDeclaracaoBolsaFamilia-windows.zip
+
+      - name: Anexar à Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: GeradorDeclaracaoBolsaFamilia-windows.zip
